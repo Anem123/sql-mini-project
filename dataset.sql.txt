@@ -1,0 +1,22 @@
+--Mini Project Dataset
+
+--Create Table
+
+create table sales (
+    product_id int,
+    product_name varchar(255),
+    sale_date date, 
+    quantity int,
+    revenue decimal(10,2)
+);
+
+--Insert Data
+
+insert into sales (product_id, sale_date, product_name, quantity, revenue) values
+(1, '2021-01-01', 'Product Ab', 50, 100.00),
+(2, '2021-01-01', 'Product Ab', 20, 1080.00),
+(3, '2021-01-04', 'Product An', 10, 199.00),
+(4, '2021-01-04', 'Product Ab', 90, 900.00),
+(5, '2021-01-05', 'Product An', 19, 399.00),
+(6, '2021-01-05', 'Product Akk', 100, 599.00),
+(7, '2021-01-01', 'Product Akk', 99, 4900.00);

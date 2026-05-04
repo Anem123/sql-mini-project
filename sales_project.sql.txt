@@ -1,0 +1,96 @@
+/* =====================================================
+   SQL MINI PROJECT - QUESTIONS
+   Try solving these before checking the answers
+===================================================== */
+
+-- 1. Retrieve all data from the table
+
+-- 2. Show only records for Product An
+
+-- 3. Find total revenue per day
+
+-- 4. Find total revenue per product
+
+-- 5. Find top-selling products by quantity (descending)
+
+-- 6. Which products were sold on January 4th?
+
+-- 7. What is total revenue for Product Ab?
+
+-- 8. Which days had total revenue greater than 150?
+
+-- 9. Which products had total quantity greater than 30?
+
+-- 10. What is average revenue for Product Akk?
+
+
+
+/* =====================================================
+   SQL MINI PROJECT - ANSWER KEY
+===================================================== */
+
+-- 1. Retrieve all data from the table
+select * from sales;
+
+
+-- 2. Show only records for Product An
+select *
+from sales
+where product_name = 'Product An';
+
+
+-- 3. Find total revenue per day
+select sale_date,
+       sum(revenue) as total_revenue
+from sales
+group by sale_date
+order by sale_date;
+
+
+-- 4. Find total revenue per product
+select product_name,
+       sum(revenue) as total_revenue
+from sales
+group by product_name;
+
+
+-- 5. Find top-selling products by quantity (descending)
+select product_name,
+       sum(quantity) as total_quantity
+from sales
+group by product_name
+order by total_quantity desc;
+
+
+-- 6. Which products were sold on January 4th?
+select product_name
+from sales
+where sale_date = '2021-01-04';
+
+
+-- 7. What is total revenue for Product Ab?
+select sum(revenue) as total_revenue
+from sales
+where product_name = 'Product Ab';
+
+
+-- 8. Which days had total revenue greater than 150?
+select sale_date,
+       sum(revenue) as total_revenue
+from sales
+group by sale_date
+having sum(revenue) > 150;
+
+
+-- 9. Which products had total quantity greater than 30?
+select product_name,
+       sum(quantity) as total_quantity
+from sales
+group by product_name
+having sum(quantity) > 30;
+
+
+-- 10. What is average revenue for Product Akk?
+select avg(revenue) as avg_revenue
+from sales
+where product_name = 'Product Akk';
